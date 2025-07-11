@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Custom styles for LinkedIn Discovery Dashboard */
+:root {
+  --primary-purple: #8B5CF6;
+  --dark-purple: #7C3AED;
+  --darker-purple: #6D28D9;
+  --light-purple: #A78BFA;
+  --purple-50: #F3F4F6;
+}
+
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom button styles matching extension */
+.btn-primary {
+  @apply bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  background: linear-gradient(45deg, #8B5CF6, #7C3AED);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #7C3AED, #6D28D9);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  @apply bg-white border-2 border-purple-500 text-purple-500 hover:bg-purple-50 font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md border border-gray-200 p-6;
+}
+
+.card:hover {
+  @apply shadow-lg border-purple-200;
+}
+
+/* Loading animation */
+.animate-pulse-purple {
+  animation: pulse-purple 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-purple {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    background-color: #F3E8FF;
+  }
+}

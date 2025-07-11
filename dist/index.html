@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="LinkedIn Discovery Dashboard - Find high-performing posts and qualified leads"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>LinkedIn Discovery Dashboard</title><link rel="stylesheet" href="/_astro/index.rAD6FhQS.css"></head> <body class="bg-gray-50 min-h-screen" data-astro-cid-sckkx6r4> <!-- Import global styles -->  <!-- Main Navigation --> <nav class="bg-white shadow-sm border-b border-gray-200" data-astro-cid-sckkx6r4> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-astro-cid-sckkx6r4> <div class="flex justify-between h-16" data-astro-cid-sckkx6r4> <div class="flex items-center" data-astro-cid-sckkx6r4> <!-- Logo --> <div class="flex items-center space-x-3" data-astro-cid-sckkx6r4> <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center" data-astro-cid-sckkx6r4> <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-sckkx6r4> <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" data-astro-cid-sckkx6r4></path> </svg> </div> <span class="text-xl font-bold text-gray-900" data-astro-cid-sckkx6r4>LinkedIn Discovery</span> </div> </div> <!-- Navigation Links --> <div class="hidden md:flex items-center space-x-8" data-astro-cid-sckkx6r4> <a href="/" class="text-purple-600 font-medium border-b-2 border-purple-600 pb-1" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> <!-- Mobile menu button --> <div class="md:hidden flex items-center" data-astro-cid-sckkx6r4> <button class="text-gray-600 hover:text-purple-600" id="mobile-menu-button" data-astro-cid-sckkx6r4> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-sckkx6r4> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" data-astro-cid-sckkx6r4></path> </svg> </button> </div> </div> </div> <!-- Mobile menu --> <div class="md:hidden hidden" id="mobile-menu" data-astro-cid-sckkx6r4> <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200" data-astro-cid-sckkx6r4> <a href="/" class="block px-3 py-2 text-purple-600 font-medium bg-purple-50 rounded-md" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> </div> </nav> <!-- Main Content --> <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-astro-cid-sckkx6r4>   <div class="mb-8" data-astro-cid-j7pv25f6> <h1 class="text-3xl font-bold text-gray-900 mb-2" data-astro-cid-j7pv25f6>🔍 Discover High-Performing Posts</h1> <p class="text-gray-600" data-astro-cid-j7pv25f6>Search LinkedIn for viral posts in your niche and identify qualified leads from comments.</p> </div>  <div class="card mb-8" data-astro-cid-j7pv25f6> <h2 class="text-xl font-semibold text-gray-900 mb-4" data-astro-cid-j7pv25f6>Create New Search</h2> <form id="search-form" class="space-y-4" data-astro-cid-j7pv25f6> <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-astro-cid-j7pv25f6> <!-- Search Name --> <div data-astro-cid-j7pv25f6> <label for="search-name" class="block text-sm font-medium text-gray-700 mb-2" data-astro-cid-j7pv25f6>
+Search Name
+</label> <input type="text" id="search-name" name="search-name" placeholder="e.g., B2B SaaS Growth" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required data-astro-cid-j7pv25f6> </div> <!-- Keywords --> <div data-astro-cid-j7pv25f6> <label for="keywords" class="block text-sm font-medium text-gray-700 mb-2" data-astro-cid-j7pv25f6>
+Keywords
+</label> <input type="text" id="keywords" name="keywords" placeholder="e.g., startup growth, customer acquisition" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required data-astro-cid-j7pv25f6> </div> </div> <!-- Fuzzy Description --> <div data-astro-cid-j7pv25f6> <label for="description" class="block text-sm font-medium text-gray-700 mb-2" data-astro-cid-j7pv25f6>
+Fuzzy Description (Optional)
+</label> <textarea id="description" name="description" rows="3" placeholder="Describe the types of posts you're looking for in natural language..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" data-astro-cid-j7pv25f6></textarea> </div> <!-- Actions --> <div class="flex gap-4" data-astro-cid-j7pv25f6> <button type="submit" class="btn-primary" data-astro-cid-j7pv25f6>
+Save & Run Search
+</button> <button type="button" id="save-only" class="btn-secondary" data-astro-cid-j7pv25f6>
+Save Only
+</button> </div> </form> </div>  <div class="card mb-8" data-astro-cid-j7pv25f6> <div class="flex justify-between items-center mb-4" data-astro-cid-j7pv25f6> <h2 class="text-xl font-semibold text-gray-900" data-astro-cid-j7pv25f6>Saved Searches</h2> <button id="refresh-searches" class="text-purple-600 hover:text-purple-700 font-medium" data-astro-cid-j7pv25f6>
+🔄 Refresh
+</button> </div> <div id="saved-searches-container" data-astro-cid-j7pv25f6> <!-- Loading state --> <div class="animate-pulse space-y-3" data-astro-cid-j7pv25f6> <div class="h-4 bg-gray-200 rounded w-3/4" data-astro-cid-j7pv25f6></div> <div class="h-4 bg-gray-200 rounded w-1/2" data-astro-cid-j7pv25f6></div> <div class="h-4 bg-gray-200 rounded w-5/6" data-astro-cid-j7pv25f6></div> </div> </div> </div>  <div id="search-results" class="hidden" data-astro-cid-j7pv25f6> <div class="card" data-astro-cid-j7pv25f6> <h2 class="text-xl font-semibold text-gray-900 mb-4" data-astro-cid-j7pv25f6>Search Results</h2> <div id="results-container" data-astro-cid-j7pv25f6> <!-- Results will be loaded here --> </div> </div> </div>  <div id="status-message" class="hidden fixed bottom-4 right-4 max-w-sm" data-astro-cid-j7pv25f6></div>  </main> <!-- Mobile menu toggle script --> <script type="module">document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu");e&&n&&e.addEventListener("click",function(){n.classList.toggle("hidden")})});</script> </body> </html> <script>(function(){const API_BASE = "https://linkedin-ai-proxy.vercel.app/api";
+
+  // API helper function
+  async function apiCall(endpoint, options = {}) {
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'user-id': 'default-user', // TODO: Replace with actual user auth
+          ...options.headers
+        },
+        ...options
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('API call failed:', error);
+      throw error;
+    }
+  }
+
+  // Show status message
+  function showStatus(message, type = 'info') {
+    const statusEl = document.getElementById('status-message');
+    const bgColor = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
+    
+    statusEl.innerHTML = `
+      <div class="${bgColor} text-white px-4 py-3 rounded-lg shadow-lg">
+        ${message}
+      </div>
+    `;
+    statusEl.classList.remove('hidden');
+    
+    setTimeout(() => {
+      statusEl.classList.add('hidden');
+    }, 5000);
+  }
+
+  // Load saved searches
+  async function loadSavedSearches() {
+    try {
+      const response = await apiCall('/searches');
+      const container = document.getElementById('saved-searches-container');
+      
+      if (response.data.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-gray-500">
+            <p>No saved searches yet. Create your first search above!</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = response.data.map(search => `
+        <div class="border border-gray-200 rounded-lg p-4 mb-3 hover:border-purple-300 transition-colors">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-semibold text-gray-900">${search.name}</h3>
+            <div class="flex gap-2">
+              <button onclick="runSearch(${search.id})" class="text-purple-600 hover:text-purple-700 text-sm font-medium">
+                Run Search
+              </button>
+              <span class="text-gray-400">|</span>
+              <span class="text-sm text-gray-500">
+                ${search.pending_posts_count || 0} pending
+              </span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-1">
+            <strong>Keywords:</strong> ${search.query_text}
+          </p>
+          ${search.fuzzy_description ? `
+            <p class="text-sm text-gray-600 mb-2">
+              <strong>Description:</strong> ${search.fuzzy_description}
+            </p>
+          ` : ''}
+          <p class="text-xs text-gray-400">
+            Last run: ${search.last_execution ? new Date(search.last_execution).toLocaleDateString() : 'Never'}
+          </p>
+        </div>
+      `).join('');
+      
+    } catch (error) {
+      console.error('Failed to load searches:', error);
+      showStatus('Failed to load saved searches', 'error');
+    }
+  }
+
+  // Save search
+  async function saveSearch(formData, runImmediately = false) {
+    try {
+      const searchData = {
+        name: formData.get('search-name'),
+        query_text: formData.get('keywords'),
+        fuzzy_description: formData.get('description') || null
+      };
+      
+      const response = await apiCall('/searches/save', {
+        method: 'POST',
+        body: JSON.stringify(searchData)
+      });
+      
+      showStatus('Search saved successfully!', 'success');
+      await loadSavedSearches();
+      
+      if (runImmediately) {
+        await runSearch(response.data.id);
+      }
+      
+      // Clear form
+      document.getElementById('search-form').reset();
+      
+    } catch (error) {
+      console.error('Failed to save search:', error);
+      showStatus('Failed to save search', 'error');
+    }
+  }
+
+  // Run search
+  async function runSearch(searchId) {
+    try {
+      showStatus('Running search...', 'info');
+      
+      const response = await apiCall('/searches/run', {
+        method: 'POST',
+        body: JSON.stringify({ searchId })
+      });
+      
+      displaySearchResults(response.data);
+      showStatus(`Found ${response.data.stats.new_posts} new posts!`, 'success');
+      
+    } catch (error) {
+      console.error('Failed to run search:', error);
+      showStatus('Failed to run search', 'error');
+    }
+  }
+
+  // Display search results
+  function displaySearchResults(data) {
+    const resultsSection = document.getElementById('search-results');
+    const container = document.getElementById('results-container');
+    
+    if (data.results.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-8 text-gray-500">
+          <p>No new posts found. All posts have been previously reviewed.</p>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="mb-4 p-4 bg-purple-50 rounded-lg">
+          <h3 class="font-semibold text-purple-900">Search: ${data.search.name}</h3>
+          <p class="text-sm text-purple-700">
+            Found ${data.stats.total_found} posts • ${data.stats.new_posts} new • ${data.stats.previously_seen} previously seen
+          </p>
+        </div>
+        
+        <div class="space-y-4">
+          ${data.results.map(post => `
+            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex-1">
+                  <h4 class="font-medium text-gray-900 mb-1">${post.author_name}</h4>
+                  <p class="text-sm text-gray-600 line-clamp-3">${post.preview_content}</p>
+                </div>
+                <div class="ml-4 text-right">
+                  <div class="text-sm font-semibold text-purple-600">Score: ${post.engagement_score}</div>
+                  <div class="text-xs text-gray-500">${post.likes} 👍 ${post.comments} 💬 ${post.reposts} 🔄</div>
+                </div>
+              </div>
+              
+              <div class="flex gap-3">
+                <button onclick="addToPipeline('${post.linkedin_url}')" class="btn-primary text-sm">
+                  Add to Pipeline
+                </button>
+                <button onclick="markNotRelevant('${post.linkedin_url}')" class="btn-secondary text-sm">
+                  Not Relevant
+                </button>
+                <a href="${post.linkedin_url}" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-medium">
+                  View on LinkedIn →
+                </a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    resultsSection.classList.remove('hidden');
+    resultsSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Add to pipeline
+  async function addToPipeline(postUrl) {
+    try {
+      await apiCall('/posts/mark-action', {
+        method: 'POST',
+        body: JSON.stringify({
+          post_linkedin_url: postUrl,
+          action: 'added_to_pipeline'
+        })
+      });
+      
+      showStatus('Post added to pipeline for analysis!', 'success');
+      // Remove the post from current view
+      event.target.closest('.border').style.opacity = '0.5';
+      event.target.textContent = 'Added ✓';
+      event.target.disabled = true;
+      
+    } catch (error) {
+      console.error('Failed to add to pipeline:', error);
+      showStatus('Failed to add to pipeline', 'error');
+    }
+  }
+
+  // Mark not relevant
+  async function markNotRelevant(postUrl) {
+    try {
+      await apiCall('/posts/mark-action', {
+        method: 'POST',
+        body: JSON.stringify({
+          post_linkedin_url: postUrl,
+          action: 'rejected_not_relevant'
+        })
+      });
+      
+      showStatus('Post marked as not relevant', 'success');
+      // Remove the post from current view
+      event.target.closest('.border').remove();
+      
+    } catch (error) {
+      console.error('Failed to mark as not relevant:', error);
+      showStatus('Failed to mark as not relevant', 'error');
+    }
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load saved searches on page load
+    loadSavedSearches();
+    
+    // Search form submission
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      saveSearch(formData, true); // Save and run
+    });
+    
+    // Save only button
+    document.getElementById('save-only').addEventListener('click', function() {
+      const formData = new FormData(document.getElementById('search-form'));
+      saveSearch(formData, false); // Save only
+    });
+    
+    // Refresh searches button
+    document.getElementById('refresh-searches').addEventListener('click', function() {
+      loadSavedSearches();
+    });
+  });
+
+  // Make functions global for onclick handlers
+  window.runSearch = runSearch;
+  window.addToPipeline = addToPipeline;
+  window.markNotRelevant = markNotRelevant;
+})();</script> 
