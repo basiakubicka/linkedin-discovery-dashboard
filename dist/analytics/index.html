@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="LinkedIn Discovery Dashboard - Find high-performing posts and qualified leads"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Analytics - LinkedIn Discovery Dashboard</title><link rel="stylesheet" href="/_astro/analytics.DC-DXIX-.css">
+<style>.period-btn[data-astro-cid-ringl6lw]{border-radius:.375rem;border-width:1px;--tw-border-opacity: 1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1));--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:.25rem .75rem;font-size:.875rem;line-height:1.25rem;font-weight:500;--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity, 1));transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.period-btn[data-astro-cid-ringl6lw]:hover{--tw-bg-opacity: 1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.period-btn[data-astro-cid-ringl6lw].active{--tw-border-opacity: 1;border-color:rgb(168 85 247 / var(--tw-border-opacity, 1));--tw-bg-opacity: 1;background-color:rgb(168 85 247 / var(--tw-bg-opacity, 1));--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.period-btn[data-astro-cid-ringl6lw]:first-child{border-top-left-radius:.375rem;border-bottom-left-radius:.375rem}.period-btn[data-astro-cid-ringl6lw]:last-child{border-top-right-radius:.375rem;border-bottom-right-radius:.375rem}.period-btn[data-astro-cid-ringl6lw]:not(:last-child){border-right-width:0px}
+</style></head> <body class="bg-gray-50 min-h-screen" data-astro-cid-sckkx6r4> <!-- Import global styles -->  <!-- Main Navigation --> <nav class="bg-white shadow-sm border-b border-gray-200" data-astro-cid-sckkx6r4> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-astro-cid-sckkx6r4> <div class="flex justify-between h-16" data-astro-cid-sckkx6r4> <div class="flex items-center" data-astro-cid-sckkx6r4> <!-- Logo --> <div class="flex items-center space-x-3" data-astro-cid-sckkx6r4> <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center" data-astro-cid-sckkx6r4> <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-sckkx6r4> <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" data-astro-cid-sckkx6r4></path> </svg> </div> <span class="text-xl font-bold text-gray-900" data-astro-cid-sckkx6r4>LinkedIn Discovery</span> </div> </div> <!-- Navigation Links --> <div class="hidden md:flex items-center space-x-8" data-astro-cid-sckkx6r4> <a href="/" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> <!-- Mobile menu button --> <div class="md:hidden flex items-center" data-astro-cid-sckkx6r4> <button class="text-gray-600 hover:text-purple-600" id="mobile-menu-button" data-astro-cid-sckkx6r4> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-sckkx6r4> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" data-astro-cid-sckkx6r4></path> </svg> </button> </div> </div> </div> <!-- Mobile menu --> <div class="md:hidden hidden" id="mobile-menu" data-astro-cid-sckkx6r4> <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200" data-astro-cid-sckkx6r4> <a href="/" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> </div> </nav> <!-- Main Content --> <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-astro-cid-sckkx6r4>   <div class="mb-8" data-astro-cid-ringl6lw> <h1 class="text-3xl font-bold text-gray-900 mb-2" data-astro-cid-ringl6lw>📊 Analytics Dashboard</h1> <p class="text-gray-600" data-astro-cid-ringl6lw>Track your LinkedIn discovery performance and lead generation metrics.</p> </div>  <div class="card mb-8" data-astro-cid-ringl6lw> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between" data-astro-cid-ringl6lw> <h2 class="text-lg font-semibold text-gray-900 mb-4 sm:mb-0" data-astro-cid-ringl6lw>Performance Overview</h2> <div class="flex gap-2" data-astro-cid-ringl6lw> <button class="period-btn active" data-period="7" data-astro-cid-ringl6lw>7 Days</button> <button class="period-btn" data-period="30" data-astro-cid-ringl6lw>30 Days</button> <button class="period-btn" data-period="90" data-astro-cid-ringl6lw>90 Days</button> <button class="period-btn" data-period="365" data-astro-cid-ringl6lw>1 Year</button> </div> </div> </div>  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" data-astro-cid-ringl6lw> <!-- Total Searches --> <div class="card" data-astro-cid-ringl6lw> <div class="flex items-center" data-astro-cid-ringl6lw> <div class="p-3 rounded-full bg-blue-100 mr-4" data-astro-cid-ringl6lw> <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-ringl6lw> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-ringl6lw></path> </svg> </div> <div data-astro-cid-ringl6lw> <p class="text-sm font-medium text-gray-600" data-astro-cid-ringl6lw>Total Searches</p> <p class="text-2xl font-bold text-gray-900" id="total-searches" data-astro-cid-ringl6lw>--</p> <p class="text-xs text-green-500" id="searches-change" data-astro-cid-ringl6lw>--</p> </div> </div> </div> <!-- Posts Discovered --> <div class="card" data-astro-cid-ringl6lw> <div class="flex items-center" data-astro-cid-ringl6lw> <div class="p-3 rounded-full bg-purple-100 mr-4" data-astro-cid-ringl6lw> <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-ringl6lw> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" data-astro-cid-ringl6lw></path> </svg> </div> <div data-astro-cid-ringl6lw> <p class="text-sm font-medium text-gray-600" data-astro-cid-ringl6lw>Posts Discovered</p> <p class="text-2xl font-bold text-gray-900" id="total-posts" data-astro-cid-ringl6lw>--</p> <p class="text-xs text-green-500" id="posts-change" data-astro-cid-ringl6lw>--</p> </div> </div> </div> <!-- Qualified Leads --> <div class="card" data-astro-cid-ringl6lw> <div class="flex items-center" data-astro-cid-ringl6lw> <div class="p-3 rounded-full bg-green-100 mr-4" data-astro-cid-ringl6lw> <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-ringl6lw> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.196-2.196M17 20v-2a3 3 0 00-3-3H8a3 3 0 00-3 3v2m14 0H3m14 0V9a9 9 0 10-18 0v11zm-4.5-9a3 3 0 11-6 0 3 3 0 016 0z" data-astro-cid-ringl6lw></path> </svg> </div> <div data-astro-cid-ringl6lw> <p class="text-sm font-medium text-gray-600" data-astro-cid-ringl6lw>Qualified Leads</p> <p class="text-2xl font-bold text-gray-900" id="total-leads" data-astro-cid-ringl6lw>--</p> <p class="text-xs text-green-500" id="leads-change" data-astro-cid-ringl6lw>--</p> </div> </div> </div> <!-- Conversion Rate --> <div class="card" data-astro-cid-ringl6lw> <div class="flex items-center" data-astro-cid-ringl6lw> <div class="p-3 rounded-full bg-yellow-100 mr-4" data-astro-cid-ringl6lw> <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-ringl6lw> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" data-astro-cid-ringl6lw></path> </svg> </div> <div data-astro-cid-ringl6lw> <p class="text-sm font-medium text-gray-600" data-astro-cid-ringl6lw>Conversion Rate</p> <p class="text-2xl font-bold text-gray-900" id="conversion-rate" data-astro-cid-ringl6lw>--</p> <p class="text-xs text-gray-500" data-astro-cid-ringl6lw>Posts → Leads</p> </div> </div> </div> </div>  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8" data-astro-cid-ringl6lw> <!-- Discovery Trend Chart --> <div class="card" data-astro-cid-ringl6lw> <h3 class="text-lg font-semibold text-gray-900 mb-4" data-astro-cid-ringl6lw>Discovery Trend</h3> <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg" data-astro-cid-ringl6lw> <div id="discovery-chart" class="w-full h-full" data-astro-cid-ringl6lw> <canvas id="discovery-canvas" width="400" height="200" data-astro-cid-ringl6lw></canvas> </div> </div> </div> <!-- Lead Quality Distribution --> <div class="card" data-astro-cid-ringl6lw> <h3 class="text-lg font-semibold text-gray-900 mb-4" data-astro-cid-ringl6lw>Lead Quality Distribution</h3> <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg" data-astro-cid-ringl6lw> <div id="quality-chart" class="w-full h-full" data-astro-cid-ringl6lw> <canvas id="quality-canvas" width="400" height="200" data-astro-cid-ringl6lw></canvas> </div> </div> </div> </div>  <div class="card mb-8" data-astro-cid-ringl6lw> <h3 class="text-lg font-semibold text-gray-900 mb-4" data-astro-cid-ringl6lw>Top Performing Searches</h3> <div id="top-searches-container" data-astro-cid-ringl6lw> <!-- Loading state --> <div class="animate-pulse space-y-3" data-astro-cid-ringl6lw> <div class="h-4 bg-gray-200 rounded w-3/4" data-astro-cid-ringl6lw></div> <div class="h-4 bg-gray-200 rounded w-1/2" data-astro-cid-ringl6lw></div> <div class="h-4 bg-gray-200 rounded w-5/6" data-astro-cid-ringl6lw></div> </div> </div> </div>  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" data-astro-cid-ringl6lw> <!-- Search Performance --> <div class="card" data-astro-cid-ringl6lw> <h3 class="text-lg font-semibold text-gray-900 mb-4" data-astro-cid-ringl6lw>Search Performance</h3> <div class="space-y-4" data-astro-cid-ringl6lw> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Average Posts per Search</span> <span class="font-medium" id="avg-posts-per-search" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Average Engagement Score</span> <span class="font-medium" id="avg-engagement" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Most Active Search Day</span> <span class="font-medium" id="most-active-day" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Search Success Rate</span> <span class="font-medium" id="search-success-rate" data-astro-cid-ringl6lw>--</span> </div> </div> </div> <!-- Lead Generation --> <div class="card" data-astro-cid-ringl6lw> <h3 class="text-lg font-semibold text-gray-900 mb-4" data-astro-cid-ringl6lw>Lead Generation</h3> <div class="space-y-4" data-astro-cid-ringl6lw> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Average Intent Score</span> <span class="font-medium" id="avg-intent-score" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>High Intent Leads</span> <span class="font-medium" id="high-intent-count" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Response Rate</span> <span class="font-medium" id="response-rate" data-astro-cid-ringl6lw>--</span> </div> <div class="flex justify-between items-center" data-astro-cid-ringl6lw> <span class="text-sm text-gray-600" data-astro-cid-ringl6lw>Best Performing Industry</span> <span class="font-medium" id="best-industry" data-astro-cid-ringl6lw>--</span> </div> </div> </div> </div>  <div id="status-message" class="hidden fixed bottom-4 right-4 max-w-sm" data-astro-cid-ringl6lw></div>  </main> <!-- Mobile menu toggle script --> <script type="module">document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu");e&&n&&e.addEventListener("click",function(){n.classList.toggle("hidden")})});</script> </body> </html> <script>(function(){const API_BASE = "https://linkedin-ai-proxy.vercel.app/api";
+
+  let currentPeriod = 7;
+  let discoveryChart = null;
+  let qualityChart = null;
+
+  // API helper function
+  async function apiCall(endpoint, options = {}) {
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'user-id': 'default-user',
+          ...options.headers
+        },
+        ...options
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('API call failed:', error);
+      throw error;
+    }
+  }
+
+  // Show status message
+  function showStatus(message, type = 'info') {
+    const statusEl = document.getElementById('status-message');
+    const bgColor = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
+    
+    statusEl.innerHTML = `
+      <div class="${bgColor} text-white px-4 py-3 rounded-lg shadow-lg">
+        ${message}
+      </div>
+    `;
+    statusEl.classList.remove('hidden');
+    
+    setTimeout(() => {
+      statusEl.classList.add('hidden');
+    }, 5000);
+  }
+
+  // Load analytics data
+  async function loadAnalytics() {
+    try {
+      const response = await apiCall(`/analytics?period=${currentPeriod}`);
+      const data = response.data;
+      
+      // Update key metrics
+      document.getElementById('total-searches').textContent = data.metrics.total_searches || 0;
+      document.getElementById('total-posts').textContent = data.metrics.total_posts || 0;
+      document.getElementById('total-leads').textContent = data.metrics.total_leads || 0;
+      document.getElementById('conversion-rate').textContent = data.metrics.conversion_rate ? `${(data.metrics.conversion_rate * 100).toFixed(1)}%` : '0%';
+      
+      // Update change indicators
+      updateChangeIndicator('searches-change', data.metrics.searches_change);
+      updateChangeIndicator('posts-change', data.metrics.posts_change);
+      updateChangeIndicator('leads-change', data.metrics.leads_change);
+      
+      // Update detailed stats
+      document.getElementById('avg-posts-per-search').textContent = data.stats.avg_posts_per_search || '0';
+      document.getElementById('avg-engagement').textContent = data.stats.avg_engagement || '0';
+      document.getElementById('most-active-day').textContent = data.stats.most_active_day || 'N/A';
+      document.getElementById('search-success-rate').textContent = data.stats.search_success_rate ? `${(data.stats.search_success_rate * 100).toFixed(1)}%` : '0%';
+      
+      document.getElementById('avg-intent-score').textContent = data.stats.avg_intent_score ? `${(data.stats.avg_intent_score * 100).toFixed(0)}%` : '0%';
+      document.getElementById('high-intent-count').textContent = data.stats.high_intent_count || '0';
+      document.getElementById('response-rate').textContent = data.stats.response_rate ? `${(data.stats.response_rate * 100).toFixed(1)}%` : '0%';
+      document.getElementById('best-industry').textContent = data.stats.best_industry || 'N/A';
+      
+      // Update charts
+      updateDiscoveryChart(data.charts.discovery_trend || []);
+      updateQualityChart(data.charts.quality_distribution || {});
+      
+      // Update top searches
+      updateTopSearches(data.top_searches || []);
+      
+    } catch (error) {
+      console.error('Failed to load analytics:', error);
+      showStatus('Failed to load analytics data', 'error');
+      
+      // Set default values
+      setDefaultValues();
+    }
+  }
+
+  // Update change indicator
+  function updateChangeIndicator(elementId, change) {
+    const element = document.getElementById(elementId);
+    if (change === undefined || change === null) {
+      element.textContent = '--';
+      element.className = 'text-xs text-gray-500';
+      return;
+    }
+    
+    const isPositive = change >= 0;
+    const arrow = isPositive ? '↑' : '↓';
+    const colorClass = isPositive ? 'text-green-500' : 'text-red-500';
+    
+    element.textContent = `${arrow} ${Math.abs(change).toFixed(1)}%`;
+    element.className = `text-xs ${colorClass}`;
+  }
+
+  // Set default values when API fails
+  function setDefaultValues() {
+    const defaultElements = [
+      'total-searches', 'total-posts', 'total-leads', 'conversion-rate',
+      'avg-posts-per-search', 'avg-engagement', 'most-active-day', 'search-success-rate',
+      'avg-intent-score', 'high-intent-count', 'response-rate', 'best-industry'
+    ];
+    
+    defaultElements.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = id === 'most-active-day' || id === 'best-industry' ? 'N/A' : '0';
+      }
+    });
+    
+    ['searches-change', 'posts-change', 'leads-change'].forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = '--';
+        element.className = 'text-xs text-gray-500';
+      }
+    });
+  }
+
+  // Update discovery trend chart
+  function updateDiscoveryChart(data) {
+    const canvas = document.getElementById('discovery-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    if (data.length === 0) {
+      // Show "No data" message
+      ctx.fillStyle = '#6B7280';
+      ctx.font = '14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('No data available', canvas.width / 2, canvas.height / 2);
+      return;
+    }
+    
+    // Simple line chart implementation
+    const padding = 40;
+    const chartWidth = canvas.width - 2 * padding;
+    const chartHeight = canvas.height - 2 * padding;
+    
+    const maxValue = Math.max(...data.map(d => d.posts + d.leads));
+    const minValue = 0;
+    const valueRange = maxValue - minValue || 1;
+    
+    // Draw axes
+    ctx.strokeStyle = '#E5E7EB';
+    ctx.lineWidth = 1;
+    
+    // Y-axis
+    ctx.beginPath();
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, canvas.height - padding);
+    ctx.stroke();
+    
+    // X-axis
+    ctx.beginPath();
+    ctx.moveTo(padding, canvas.height - padding);
+    ctx.lineTo(canvas.width - padding, canvas.height - padding);
+    ctx.stroke();
+    
+    // Draw data lines
+    if (data.length > 1) {
+      const stepX = chartWidth / (data.length - 1);
+      
+      // Posts line (purple)
+      ctx.strokeStyle = '#8B5CF6';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      data.forEach((point, index) => {
+        const x = padding + index * stepX;
+        const y = canvas.height - padding - ((point.posts - minValue) / valueRange) * chartHeight;
+        if (index === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      });
+      ctx.stroke();
+      
+      // Leads line (green)
+      ctx.strokeStyle = '#10B981';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      data.forEach((point, index) => {
+        const x = padding + index * stepX;
+        const y = canvas.height - padding - ((point.leads - minValue) / valueRange) * chartHeight;
+        if (index === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      });
+      ctx.stroke();
+    }
+    
+    // Add legend
+    ctx.font = '12px Arial';
+    ctx.fillStyle = '#8B5CF6';
+    ctx.fillText('Posts', canvas.width - 80, 20);
+    ctx.fillStyle = '#10B981';
+    ctx.fillText('Leads', canvas.width - 80, 35);
+  }
+
+  // Update quality distribution chart
+  function updateQualityChart(data) {
+    const canvas = document.getElementById('quality-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    const qualities = ['High', 'Medium', 'Low'];
+    const values = [data.high || 0, data.medium || 0, data.low || 0];
+    const colors = ['#10B981', '#F59E0B', '#EF4444'];
+    
+    if (values.every(v => v === 0)) {
+      // Show "No data" message
+      ctx.fillStyle = '#6B7280';
+      ctx.font = '14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('No data available', canvas.width / 2, canvas.height / 2);
+      return;
+    }
+    
+    // Simple bar chart
+    const padding = 40;
+    const chartWidth = canvas.width - 2 * padding;
+    const chartHeight = canvas.height - 2 * padding;
+    const maxValue = Math.max(...values) || 1;
+    
+    const barWidth = chartWidth / qualities.length * 0.8;
+    const barSpacing = chartWidth / qualities.length * 0.2;
+    
+    qualities.forEach((quality, index) => {
+      const value = values[index];
+      const barHeight = (value / maxValue) * chartHeight;
+      const x = padding + index * (barWidth + barSpacing);
+      const y = canvas.height - padding - barHeight;
+      
+      // Draw bar
+      ctx.fillStyle = colors[index];
+      ctx.fillRect(x, y, barWidth, barHeight);
+      
+      // Draw label
+      ctx.fillStyle = '#374151';
+      ctx.font = '12px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(quality, x + barWidth / 2, canvas.height - padding + 15);
+      
+      // Draw value
+      ctx.fillText(value.toString(), x + barWidth / 2, y - 5);
+    });
+  }
+
+  // Update top searches table
+  function updateTopSearches(searches) {
+    const container = document.getElementById('top-searches-container');
+    
+    if (searches.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-8 text-gray-500">
+          <p>No search data available for the selected period.</p>
+        </div>
+      `;
+      return;
+    }
+    
+    container.innerHTML = `
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Search Name</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Posts Found</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Leads Generated</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Conversion Rate</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Run</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            ${searches.map(search => `
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  ${search.name}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  ${search.posts_found || 0}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  ${search.leads_generated || 0}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  ${search.conversion_rate ? `${(search.conversion_rate * 100).toFixed(1)}%` : '0%'}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  ${search.last_run ? new Date(search.last_run).toLocaleDateString() : 'Never'}
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Handle period change
+  function changePeriod(period) {
+    currentPeriod = period;
+    
+    // Update active button
+    document.querySelectorAll('.period-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`[data-period="${period}"]`).classList.add('active');
+    
+    // Reload data
+    loadAnalytics();
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load initial analytics
+    loadAnalytics();
+    
+    // Period button handlers
+    document.querySelectorAll('.period-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        changePeriod(parseInt(this.dataset.period));
+      });
+    });
+  });
+})();</script> 

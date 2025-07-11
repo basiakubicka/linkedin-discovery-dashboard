@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="LinkedIn Discovery Dashboard - Find high-performing posts and qualified leads"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Leads - LinkedIn Discovery Dashboard</title><link rel="stylesheet" href="/_astro/analytics.DC-DXIX-.css"></head> <body class="bg-gray-50 min-h-screen" data-astro-cid-sckkx6r4> <!-- Import global styles -->  <!-- Main Navigation --> <nav class="bg-white shadow-sm border-b border-gray-200" data-astro-cid-sckkx6r4> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-astro-cid-sckkx6r4> <div class="flex justify-between h-16" data-astro-cid-sckkx6r4> <div class="flex items-center" data-astro-cid-sckkx6r4> <!-- Logo --> <div class="flex items-center space-x-3" data-astro-cid-sckkx6r4> <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center" data-astro-cid-sckkx6r4> <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-sckkx6r4> <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" data-astro-cid-sckkx6r4></path> </svg> </div> <span class="text-xl font-bold text-gray-900" data-astro-cid-sckkx6r4>LinkedIn Discovery</span> </div> </div> <!-- Navigation Links --> <div class="hidden md:flex items-center space-x-8" data-astro-cid-sckkx6r4> <a href="/" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> <!-- Mobile menu button --> <div class="md:hidden flex items-center" data-astro-cid-sckkx6r4> <button class="text-gray-600 hover:text-purple-600" id="mobile-menu-button" data-astro-cid-sckkx6r4> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-sckkx6r4> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" data-astro-cid-sckkx6r4></path> </svg> </button> </div> </div> </div> <!-- Mobile menu --> <div class="md:hidden hidden" id="mobile-menu" data-astro-cid-sckkx6r4> <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200" data-astro-cid-sckkx6r4> <a href="/" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/leads" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> </div> </nav> <!-- Main Content --> <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-astro-cid-sckkx6r4>   <div class="mb-8"> <h1 class="text-3xl font-bold text-gray-900 mb-2">👥 Qualified Leads</h1> <p class="text-gray-600">Manage and engage with leads identified from LinkedIn post comments.</p> </div>  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"> <div class="card"> <div class="flex items-center"> <div class="p-3 rounded-full bg-purple-100 mr-4"> <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.196-2.196M17 20v-2a3 3 0 00-3-3H8a3 3 0 00-3 3v2m14 0H3m14 0V9a9 9 0 10-18 0v11zm-4.5-9a3 3 0 11-6 0 3 3 0 016 0z"></path> </svg> </div> <div> <p class="text-sm font-medium text-gray-600">Total Leads</p> <p class="text-2xl font-bold text-gray-900" id="total-leads">--</p> </div> </div> </div> <div class="card"> <div class="flex items-center"> <div class="p-3 rounded-full bg-green-100 mr-4"> <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path> </svg> </div> <div> <p class="text-sm font-medium text-gray-600">High Intent</p> <p class="text-2xl font-bold text-gray-900" id="high-intent">--</p> </div> </div> </div> <div class="card"> <div class="flex items-center"> <div class="p-3 rounded-full bg-blue-100 mr-4"> <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path> </svg> </div> <div> <p class="text-sm font-medium text-gray-600">Contacted</p> <p class="text-2xl font-bold text-gray-900" id="contacted">--</p> </div> </div> </div> <div class="card"> <div class="flex items-center"> <div class="p-3 rounded-full bg-yellow-100 mr-4"> <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path> </svg> </div> <div> <p class="text-sm font-medium text-gray-600">Pending</p> <p class="text-2xl font-bold text-gray-900" id="pending">--</p> </div> </div> </div> </div>  <div class="card mb-8"> <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"> <h2 class="text-xl font-semibold text-gray-900 mb-4 md:mb-0">Lead Management</h2> <div class="flex flex-col sm:flex-row gap-4"> <select id="intent-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"> <option value="">All Intent Levels</option> <option value="high">High Intent</option> <option value="medium">Medium Intent</option> <option value="low">Low Intent</option> </select> <select id="status-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"> <option value="">All Statuses</option> <option value="new">New</option> <option value="contacted">Contacted</option> <option value="interested">Interested</option> <option value="not_interested">Not Interested</option> </select> <button id="export-leads" class="btn-secondary">
+📥 Export CSV
+</button> </div> </div> </div>  <div class="card"> <div id="leads-container"> <!-- Loading state --> <div class="animate-pulse space-y-4"> <div class="h-4 bg-gray-200 rounded w-3/4"></div> <div class="h-4 bg-gray-200 rounded w-1/2"></div> <div class="h-4 bg-gray-200 rounded w-5/6"></div> </div> </div> </div>  <div id="lead-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"> <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white"> <div class="mt-3"> <div class="flex justify-between items-center mb-4"> <h3 class="text-lg font-medium text-gray-900" id="modal-title">Lead Details</h3> <button id="close-modal" class="text-gray-400 hover:text-gray-600"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> <div id="modal-content"> <!-- Modal content will be loaded here --> </div> </div> </div> </div>  <div id="status-message" class="hidden fixed bottom-4 right-4 max-w-sm"></div>  </main> <!-- Mobile menu toggle script --> <script type="module">document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu");e&&n&&e.addEventListener("click",function(){n.classList.toggle("hidden")})});</script> </body> </html> <script>(function(){const API_BASE = "https://linkedin-ai-proxy.vercel.app/api";
+
+  // API helper function
+  async function apiCall(endpoint, options = {}) {
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'user-id': 'default-user',
+          ...options.headers
+        },
+        ...options
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('API call failed:', error);
+      throw error;
+    }
+  }
+
+  // Show status message
+  function showStatus(message, type = 'info') {
+    const statusEl = document.getElementById('status-message');
+    const bgColor = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
+    
+    statusEl.innerHTML = `
+      <div class="${bgColor} text-white px-4 py-3 rounded-lg shadow-lg">
+        ${message}
+      </div>
+    `;
+    statusEl.classList.remove('hidden');
+    
+    setTimeout(() => {
+      statusEl.classList.add('hidden');
+    }, 5000);
+  }
+
+  // Load leads stats
+  async function loadLeadsStats() {
+    try {
+      const response = await apiCall('/leads/stats');
+      
+      document.getElementById('total-leads').textContent = response.data.total || 0;
+      document.getElementById('high-intent').textContent = response.data.high_intent || 0;
+      document.getElementById('contacted').textContent = response.data.contacted || 0;
+      document.getElementById('pending').textContent = response.data.pending || 0;
+      
+    } catch (error) {
+      console.error('Failed to load stats:', error);
+      // Set default values
+      document.getElementById('total-leads').textContent = '0';
+      document.getElementById('high-intent').textContent = '0';
+      document.getElementById('contacted').textContent = '0';
+      document.getElementById('pending').textContent = '0';
+    }
+  }
+
+  // Load leads
+  async function loadLeads() {
+    try {
+      const intentFilter = document.getElementById('intent-filter').value;
+      const statusFilter = document.getElementById('status-filter').value;
+      
+      const params = new URLSearchParams();
+      if (intentFilter) params.append('intent', intentFilter);
+      if (statusFilter) params.append('status', statusFilter);
+      
+      const response = await apiCall(`/leads?${params.toString()}`);
+      const container = document.getElementById('leads-container');
+      
+      if (response.data.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-gray-500">
+            <p>No leads found. Start discovering posts to find qualified leads!</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = `
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lead</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Intent</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source Post</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              ${response.data.map(lead => `
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="flex-shrink-0 h-10 w-10">
+                        <div class="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                          <span class="text-sm font-medium text-purple-600">${lead.commenter_name?.charAt(0) || '?'}</span>
+                        </div>
+                      </div>
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">${lead.commenter_name || 'Unknown'}</div>
+                        <div class="text-sm text-gray-500">${lead.commenter_title || 'No title'}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      lead.intent_score >= 0.8 ? 'bg-green-100 text-green-800' :
+                      lead.intent_score >= 0.6 ? 'bg-yellow-100 text-yellow-800' :
+                      'bg-gray-100 text-gray-800'
+                    }">
+                      ${lead.intent_score >= 0.8 ? 'High' : lead.intent_score >= 0.6 ? 'Medium' : 'Low'}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="text-sm text-gray-900 truncate max-w-xs">${lead.source_post_content || 'Post content'}</div>
+                    <div class="text-sm text-gray-500">${lead.source_post_author || 'Unknown author'}</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      lead.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
+                      lead.status === 'interested' ? 'bg-green-100 text-green-800' :
+                      lead.status === 'not_interested' ? 'bg-red-100 text-red-800' :
+                      'bg-gray-100 text-gray-800'
+                    }">
+                      ${lead.status || 'new'}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button onclick="viewLead('${lead.id}')" class="text-purple-600 hover:text-purple-900 mr-3">View</button>
+                    <button onclick="updateLeadStatus('${lead.id}', 'contacted')" class="text-blue-600 hover:text-blue-900 mr-3">Contact</button>
+                    <button onclick="updateLeadStatus('${lead.id}', 'not_interested')" class="text-red-600 hover:text-red-900">Remove</button>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+      
+    } catch (error) {
+      console.error('Failed to load leads:', error);
+      showStatus('Failed to load leads', 'error');
+    }
+  }
+
+  // View lead details
+  async function viewLead(leadId) {
+    try {
+      const response = await apiCall(`/leads/${leadId}`);
+      const lead = response.data;
+      
+      document.getElementById('modal-title').textContent = lead.commenter_name || 'Lead Details';
+      document.getElementById('modal-content').innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <h4 class="font-medium text-gray-900">Contact Information</h4>
+            <p class="text-gray-600">Name: ${lead.commenter_name || 'Unknown'}</p>
+            <p class="text-gray-600">Title: ${lead.commenter_title || 'Not specified'}</p>
+            <p class="text-gray-600">LinkedIn: <a href="${lead.commenter_linkedin_url || '#'}" target="_blank" class="text-purple-600 hover:text-purple-700">View Profile</a></p>
+          </div>
+          
+          <div>
+            <h4 class="font-medium text-gray-900">Intent Analysis</h4>
+            <p class="text-gray-600">Score: ${Math.round((lead.intent_score || 0) * 100)}%</p>
+            <p class="text-gray-600">Reason: ${lead.intent_explanation || 'No analysis available'}</p>
+          </div>
+          
+          <div>
+            <h4 class="font-medium text-gray-900">Comment</h4>
+            <p class="text-gray-600 italic">"${lead.comment_content || 'No comment available'}"</p>
+          </div>
+          
+          <div>
+            <h4 class="font-medium text-gray-900">Source Post</h4>
+            <p class="text-gray-600">${lead.source_post_content || 'Post content not available'}</p>
+            <a href="${lead.source_post_url || '#'}" target="_blank" class="text-purple-600 hover:text-purple-700">View Original Post</a>
+          </div>
+          
+          <div class="flex gap-3 pt-4">
+            <button onclick="updateLeadStatus('${lead.id}', 'contacted')" class="btn-primary">Mark as Contacted</button>
+            <button onclick="updateLeadStatus('${lead.id}', 'interested')" class="btn-secondary">Mark as Interested</button>
+            <button onclick="updateLeadStatus('${lead.id}', 'not_interested')" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">Not Interested</button>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('lead-modal').classList.remove('hidden');
+      
+    } catch (error) {
+      console.error('Failed to load lead details:', error);
+      showStatus('Failed to load lead details', 'error');
+    }
+  }
+
+  // Update lead status
+  async function updateLeadStatus(leadId, status) {
+    try {
+      await apiCall(`/leads/${leadId}/status`, {
+        method: 'PUT',
+        body: JSON.stringify({ status })
+      });
+      
+      showStatus('Lead status updated successfully!', 'success');
+      await loadLeads();
+      await loadLeadsStats();
+      
+      // Close modal if open
+      document.getElementById('lead-modal').classList.add('hidden');
+      
+    } catch (error) {
+      console.error('Failed to update lead status:', error);
+      showStatus('Failed to update lead status', 'error');
+    }
+  }
+
+  // Export leads
+  async function exportLeads() {
+    try {
+      const intentFilter = document.getElementById('intent-filter').value;
+      const statusFilter = document.getElementById('status-filter').value;
+      
+      const params = new URLSearchParams();
+      if (intentFilter) params.append('intent', intentFilter);
+      if (statusFilter) params.append('status', statusFilter);
+      params.append('format', 'csv');
+      
+      const response = await fetch(`${API_BASE}/leads/export?${params.toString()}`, {
+        headers: {
+          'user-id': 'default-user'
+        }
+      });
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `leads-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+      
+      showStatus('Leads exported successfully!', 'success');
+      
+    } catch (error) {
+      console.error('Failed to export leads:', error);
+      showStatus('Failed to export leads', 'error');
+    }
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load initial data
+    loadLeadsStats();
+    loadLeads();
+    
+    // Filter change handlers
+    document.getElementById('intent-filter').addEventListener('change', loadLeads);
+    document.getElementById('status-filter').addEventListener('change', loadLeads);
+    
+    // Export button
+    document.getElementById('export-leads').addEventListener('click', exportLeads);
+    
+    // Modal close handler
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('lead-modal').classList.add('hidden');
+    });
+    
+    // Close modal when clicking outside
+    document.getElementById('lead-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.add('hidden');
+      }
+    });
+  });
+
+  // Make functions global for onclick handlers
+  window.viewLead = viewLead;
+  window.updateLeadStatus = updateLeadStatus;
+})();</script>
