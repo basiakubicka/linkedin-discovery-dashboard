@@ -199,21 +199,37 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
   // Load saved searches
   async function loadSavedSearches() {
     try {
-      const response = await apiCall('/searches');
+      // Use dummy data for demonstration
+      const dummySearches = [
+        {
+          id: 1,
+          name: "B2B SaaS Growth",
+          query_text: "startup growth, customer acquisition, SaaS metrics",
+          fuzzy_description: "Posts about scaling B2B SaaS companies",
+          pending_posts_count: 12,
+          last_execution: "2024-01-10T10:30:00Z"
+        },
+        {
+          id: 2,
+          name: "AI Marketing Tools",
+          query_text: "artificial intelligence, marketing automation, AI tools",
+          fuzzy_description: "Latest AI-powered marketing solutions and strategies",
+          pending_posts_count: 8,
+          last_execution: "2024-01-09T14:15:00Z"
+        },
+        {
+          id: 3,
+          name: "Startup Funding",
+          query_text: "venture capital, seed funding, startup investment",
+          fuzzy_description: null,
+          pending_posts_count: 15,
+          last_execution: null
+        }
+      ];
+      
       const container = document.getElementById('saved-searches-container');
       
-      if (response.data.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-16">
-            <div class="text-6xl mb-4">📚</div>
-            <h3 class="text-xl font-semibold text-gray-600 mb-2">No saved searches yet</h3>
-            <p class="text-gray-500">Create your first search above to get started!</p>
-          </div>
-        `;
-        return;
-      }
-      
-      container.innerHTML = response.data.map(search => `
+      container.innerHTML = dummySearches.map(search => `
         <div class="search-card">
           <div class="flex justify-between items-start mb-4">
             <div class="flex-1">
@@ -408,10 +424,80 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
     }
   }
 
+  // Create dummy data for demonstration
+  function loadDummyData() {
+    const dummyData = {
+      search: {
+        name: "B2B SaaS Growth",
+        id: 1
+      },
+      stats: {
+        total_found: 25,
+        new_posts: 8,
+        previously_seen: 17
+      },
+      results: [
+        {
+          author_name: "Sarah Chen",
+          preview_content: "Just hit $1M ARR after 18 months of building our B2B SaaS platform! Here's what I learned about customer acquisition that I wish I knew earlier. Thread 🧵",
+          engagement_score: 94,
+          likes: 342,
+          comments: 89,
+          reposts: 45,
+          linkedin_url: "https://linkedin.com/posts/sarah-chen-growth"
+        },
+        {
+          author_name: "Marcus Rodriguez",
+          preview_content: "Stop wasting money on paid ads for your SaaS startup. I've helped 50+ B2B companies grow to 7-figures using these 5 organic growth strategies that actually work in 2024.",
+          engagement_score: 87,
+          likes: 289,
+          comments: 67,
+          reposts: 34,
+          linkedin_url: "https://linkedin.com/posts/marcus-rodriguez-saas"
+        },
+        {
+          author_name: "Emily Zhang",
+          preview_content: "Why 90% of SaaS startups fail at customer onboarding (and how we fixed ours to increase retention by 40%). The biggest mistake founders make is assuming users will figure it out themselves.",
+          engagement_score: 91,
+          likes: 456,
+          comments: 123,
+          reposts: 67,
+          linkedin_url: "https://linkedin.com/posts/emily-zhang-onboarding"
+        },
+        {
+          author_name: "David Park",
+          preview_content: "From 0 to 10,000 users in 6 months. Here's the exact growth playbook we used for our B2B automation tool. Spoiler: It wasn't about the product features.",
+          engagement_score: 88,
+          likes: 378,
+          comments: 95,
+          reposts: 52,
+          linkedin_url: "https://linkedin.com/posts/david-park-growth"
+        },
+        {
+          author_name: "Alex Thompson",
+          preview_content: "I analyzed 100+ successful B2B SaaS pricing pages. Here are the 7 psychological triggers that convert browsers into buyers. Number 4 will surprise you.",
+          engagement_score: 82,
+          likes: 234,
+          comments: 58,
+          reposts: 29,
+          linkedin_url: "https://linkedin.com/posts/alex-thompson-pricing"
+        }
+      ]
+    };
+    
+    displaySearchResults(dummyData);
+    showStatus('Loaded dummy data for preview! 🎯', 'info');
+  }
+
   // Event listeners
   document.addEventListener('DOMContentLoaded', function() {
     // Load saved searches on page load
     loadSavedSearches();
+    
+    // Load dummy data for demonstration (remove this in production)
+    setTimeout(() => {
+      loadDummyData();
+    }, 1000);
     
     // Tab switching
     document.getElementById('search-results-tab').addEventListener('click', () => switchTab('search-results'));
