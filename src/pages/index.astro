@@ -8,42 +8,40 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
 <Layout title="LinkedIn Discovery Dashboard">
   <!-- Page Header -->
   <div class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">🔍 Discover High-Performing Posts</h1>
-    <p class="text-gray-600">Search LinkedIn for viral posts in your niche and identify qualified leads from comments.</p>
+    <h1 class="text-4xl font-bold text-gray-900 mb-3">🔍 Discover High-Performing Posts</h1>
+    <p class="text-xl text-gray-600">Search LinkedIn for viral posts in your niche and identify qualified leads from comments.</p>
   </div>
 
-  <!-- Search Section -->
-  <div class="card mb-8">
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Create New Search</h2>
+  <!-- Create New Search Section -->
+  <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Create New Search</h2>
     
-    <form id="search-form" class="space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <form id="search-form" class="space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Search Name -->
         <div>
-          <label for="search-name" class="block text-sm font-medium text-gray-700 mb-2">
+          <label for="search-name" class="block text-sm font-semibold text-gray-700 mb-3">
             Search Name
           </label>
           <input 
             type="text" 
             id="search-name" 
-            name="search-name"
             placeholder="e.g., B2B SaaS Growth"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 text-lg"
             required
           />
         </div>
         
         <!-- Keywords -->
         <div>
-          <label for="keywords" class="block text-sm font-medium text-gray-700 mb-2">
+          <label for="keywords" class="block text-sm font-semibold text-gray-700 mb-3">
             Keywords
           </label>
           <input 
             type="text" 
             id="keywords" 
-            name="keywords"
             placeholder="e.g., startup growth, customer acquisition"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 text-lg"
             required
           />
         </div>
@@ -51,71 +49,118 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
       
       <!-- Fuzzy Description -->
       <div>
-        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
-          Fuzzy Description (Optional)
+        <label for="description" class="block text-sm font-semibold text-gray-700 mb-3">
+          Description (Optional)
         </label>
         <textarea 
           id="description" 
-          name="description"
           rows="3"
           placeholder="Describe the types of posts you're looking for in natural language..."
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 text-lg resize-none"
         ></textarea>
       </div>
       
-      <!-- Actions -->
-      <div class="flex gap-4">
-        <button type="submit" class="btn-primary">
-          Save & Run Search
+      <!-- Action Buttons -->
+      <div class="flex gap-4 pt-4">
+        <button type="button" id="save-search" class="save-btn">
+          💾 Save Search
         </button>
-        <button type="button" id="save-only" class="btn-secondary">
-          Save Only
+        <button type="submit" class="run-btn">
+          🚀 Run Search
         </button>
       </div>
     </form>
   </div>
 
-  <!-- Saved Searches -->
-  <div class="card mb-8">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-semibold text-gray-900">Saved Searches</h2>
-      <button id="refresh-searches" class="text-purple-600 hover:text-purple-700 font-medium">
-        🔄 Refresh
-      </button>
+  <!-- Tabs Navigation -->
+  <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+    <!-- Tab Headers -->
+    <div class="border-b border-gray-200">
+      <nav class="flex">
+        <button 
+          id="saved-searches-tab" 
+          class="tab-button active w-1/2 py-4 px-6 text-lg font-semibold focus:outline-none transition-all duration-200"
+        >
+          📚 Saved Searches
+        </button>
+        <button 
+          id="search-results-tab" 
+          class="tab-button w-1/2 py-4 px-6 text-lg font-semibold focus:outline-none transition-all duration-200"
+        >
+          📊 Search Results
+        </button>
+      </nav>
     </div>
-    
-    <div id="saved-searches-container">
-      <!-- Loading state -->
-      <div class="animate-pulse space-y-3">
-        <div class="h-4 bg-gray-200 rounded w-3/4"></div>
-        <div class="h-4 bg-gray-200 rounded w-1/2"></div>
-        <div class="h-4 bg-gray-200 rounded w-5/6"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Search Results -->
-  <div id="search-results" class="hidden">
-    <div class="card">
-      <h2 class="text-xl font-semibold text-gray-900 mb-4">Search Results</h2>
-      <div id="results-container">
-        <!-- Results will be loaded here -->
+    <!-- Tab Content -->
+    <div class="p-8">
+      
+      <!-- Saved Searches Tab -->
+      <div id="saved-searches-content" class="tab-content">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold text-gray-900">Your Saved Searches</h3>
+          <button id="refresh-searches" class="refresh-btn">
+            🔄 Refresh
+          </button>
+        </div>
+        
+        <div id="saved-searches-container">
+          <!-- Loading state -->
+          <div class="space-y-4">
+            <div class="animate-pulse">
+              <div class="h-6 bg-gray-200 rounded-lg w-3/4 mb-3"></div>
+              <div class="h-4 bg-gray-200 rounded-lg w-1/2 mb-2"></div>
+              <div class="h-4 bg-gray-200 rounded-lg w-5/6"></div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Search Results Tab -->
+      <div id="search-results-content" class="tab-content hidden">
+        <div id="results-container">
+          <div class="text-center py-16">
+            <div class="text-6xl mb-4">🔍</div>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No search results yet</h3>
+            <p class="text-gray-500">Run a search to see high-performing LinkedIn posts here</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 
   <!-- Status Messages -->
-  <div id="status-message" class="hidden fixed bottom-4 right-4 max-w-sm"></div>
+  <div id="status-message" class="hidden fixed bottom-6 right-6 max-w-sm z-50"></div>
 </Layout>
 
 <script define:vars={{ API_BASE }}>
+  // Tab switching functionality
+  function switchTab(tabName) {
+    // Hide all tab content
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.add('hidden');
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.classList.remove('active');
+    });
+    
+    // Show selected tab content
+    document.getElementById(tabName + '-content').classList.remove('hidden');
+    
+    // Add active class to selected tab
+    document.getElementById(tabName + '-tab').classList.add('active');
+  }
+
   // API helper function
   async function apiCall(endpoint, options = {}) {
     try {
       const response = await fetch(`${API_BASE}${endpoint}`, {
         headers: {
           'Content-Type': 'application/json',
-          'user-id': 'default-user', // TODO: Replace with actual user auth
+          'user-id': 'default-user',
           ...options.headers
         },
         ...options
@@ -138,8 +183,10 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
     const bgColor = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
     
     statusEl.innerHTML = `
-      <div class="${bgColor} text-white px-4 py-3 rounded-lg shadow-lg">
-        ${message}
+      <div class="${bgColor} text-white px-6 py-4 rounded-2xl shadow-xl">
+        <div class="flex items-center">
+          <span class="text-lg">${message}</span>
+        </div>
       </div>
     `;
     statusEl.classList.remove('hidden');
@@ -157,38 +204,45 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
       
       if (response.data.length === 0) {
         container.innerHTML = `
-          <div class="text-center py-8 text-gray-500">
-            <p>No saved searches yet. Create your first search above!</p>
+          <div class="text-center py-16">
+            <div class="text-6xl mb-4">📚</div>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No saved searches yet</h3>
+            <p class="text-gray-500">Create your first search above to get started!</p>
           </div>
         `;
         return;
       }
       
       container.innerHTML = response.data.map(search => `
-        <div class="border border-gray-200 rounded-lg p-4 mb-3 hover:border-purple-300 transition-colors">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-semibold text-gray-900">${search.name}</h3>
-            <div class="flex gap-2">
-              <button onclick="runSearch(${search.id})" class="text-purple-600 hover:text-purple-700 text-sm font-medium">
-                Run Search
-              </button>
-              <span class="text-gray-400">|</span>
-              <span class="text-sm text-gray-500">
-                ${search.pending_posts_count || 0} pending
-              </span>
+        <div class="search-card">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex-1">
+              <h4 class="text-xl font-bold text-gray-900 mb-2">${search.name}</h4>
+              <p class="text-gray-600 mb-1">
+                <span class="font-semibold">Keywords:</span> ${search.query_text}
+              </p>
+              ${search.fuzzy_description ? `
+                <p class="text-gray-600 mb-3">
+                  <span class="font-semibold">Description:</span> ${search.fuzzy_description}
+                </p>
+              ` : ''}
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right">
+                <div class="text-2xl font-bold text-purple-600">${search.pending_posts_count || 0}</div>
+                <div class="text-sm text-gray-500">pending posts</div>
+              </div>
             </div>
           </div>
-          <p class="text-sm text-gray-600 mb-1">
-            <strong>Keywords:</strong> ${search.query_text}
-          </p>
-          ${search.fuzzy_description ? `
-            <p class="text-sm text-gray-600 mb-2">
-              <strong>Description:</strong> ${search.fuzzy_description}
-            </p>
-          ` : ''}
-          <p class="text-xs text-gray-400">
-            Last run: ${search.last_execution ? new Date(search.last_execution).toLocaleDateString() : 'Never'}
-          </p>
+          
+          <div class="flex justify-between items-center">
+            <div class="text-sm text-gray-500">
+              Last run: ${search.last_execution ? new Date(search.last_execution).toLocaleDateString() : 'Never'}
+            </div>
+            <button onclick="runSearch(${search.id})" class="run-search-btn">
+              🚀 Run Search
+            </button>
+          </div>
         </div>
       `).join('');
       
@@ -199,25 +253,26 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
   }
 
   // Save search
-  async function saveSearch(formData, runImmediately = false) {
+  async function saveSearch() {
     try {
       const searchData = {
-        name: formData.get('search-name'),
-        query_text: formData.get('keywords'),
-        fuzzy_description: formData.get('description') || null
+        name: document.getElementById('search-name').value,
+        query_text: document.getElementById('keywords').value,
+        fuzzy_description: document.getElementById('description').value || null
       };
+      
+      if (!searchData.name || !searchData.query_text) {
+        showStatus('Please fill in search name and keywords', 'error');
+        return;
+      }
       
       const response = await apiCall('/searches/save', {
         method: 'POST',
         body: JSON.stringify(searchData)
       });
       
-      showStatus('Search saved successfully!', 'success');
+      showStatus('Search saved successfully! 💾', 'success');
       await loadSavedSearches();
-      
-      if (runImmediately) {
-        await runSearch(response.data.id);
-      }
       
       // Clear form
       document.getElementById('search-form').reset();
@@ -231,7 +286,7 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
   // Run search
   async function runSearch(searchId) {
     try {
-      showStatus('Running search...', 'info');
+      showStatus('Running search... ⏳', 'info');
       
       const response = await apiCall('/searches/run', {
         method: 'POST',
@@ -239,7 +294,8 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
       });
       
       displaySearchResults(response.data);
-      showStatus(`Found ${response.data.stats.new_posts} new posts!`, 'success');
+      switchTab('search-results');
+      showStatus(`Found ${response.data.stats.new_posts} new posts! 🎉`, 'success');
       
     } catch (error) {
       console.error('Failed to run search:', error);
@@ -249,57 +305,63 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
 
   // Display search results
   function displaySearchResults(data) {
-    const resultsSection = document.getElementById('search-results');
     const container = document.getElementById('results-container');
     
     if (data.results.length === 0) {
       container.innerHTML = `
-        <div class="text-center py-8 text-gray-500">
-          <p>No new posts found. All posts have been previously reviewed.</p>
+        <div class="text-center py-16">
+          <div class="text-6xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">No new posts found</h3>
+          <p class="text-gray-500">All posts have been previously reviewed</p>
         </div>
       `;
-    } else {
-      container.innerHTML = `
-        <div class="mb-4 p-4 bg-purple-50 rounded-lg">
-          <h3 class="font-semibold text-purple-900">Search: ${data.search.name}</h3>
-          <p class="text-sm text-purple-700">
-            Found ${data.stats.total_found} posts • ${data.stats.new_posts} new • ${data.stats.previously_seen} previously seen
-          </p>
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="mb-6">
+        <div class="results-header">
+          <h3 class="text-2xl font-bold text-gray-900">Search: ${data.search.name}</h3>
+          <div class="text-lg text-gray-600">
+            Found <span class="font-bold text-purple-600">${data.stats.total_found}</span> posts • 
+            <span class="font-bold text-green-600">${data.stats.new_posts}</span> new • 
+            <span class="font-bold text-gray-500">${data.stats.previously_seen}</span> previously seen
+          </div>
         </div>
-        
-        <div class="space-y-4">
-          ${data.results.map(post => `
-            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex-1">
-                  <h4 class="font-medium text-gray-900 mb-1">${post.author_name}</h4>
-                  <p class="text-sm text-gray-600 line-clamp-3">${post.preview_content}</p>
-                </div>
-                <div class="ml-4 text-right">
-                  <div class="text-sm font-semibold text-purple-600">Score: ${post.engagement_score}</div>
-                  <div class="text-xs text-gray-500">${post.likes} 👍 ${post.comments} 💬 ${post.reposts} 🔄</div>
-                </div>
+      </div>
+      
+      <div class="space-y-6">
+        ${data.results.map(post => `
+          <div class="post-card">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">${post.author_name}</h4>
+                <p class="text-gray-700 text-lg leading-relaxed mb-4">${post.preview_content}</p>
               </div>
-              
-              <div class="flex gap-3">
-                <button onclick="addToPipeline('${post.linkedin_url}')" class="btn-primary text-sm">
-                  Add to Pipeline
-                </button>
-                <button onclick="markNotRelevant('${post.linkedin_url}')" class="btn-secondary text-sm">
-                  Not Relevant
-                </button>
-                <a href="${post.linkedin_url}" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-medium">
-                  View on LinkedIn →
-                </a>
+              <div class="ml-6 text-right">
+                <div class="text-3xl font-bold text-purple-600 mb-1">${post.engagement_score}</div>
+                <div class="text-sm text-gray-500 mb-3">Score</div>
+                <div class="text-sm text-gray-600">
+                  ${post.likes} 👍 ${post.comments} 💬 ${post.reposts} 🔄
+                </div>
               </div>
             </div>
-          `).join('')}
-        </div>
-      `;
-    }
-    
-    resultsSection.classList.remove('hidden');
-    resultsSection.scrollIntoView({ behavior: 'smooth' });
+            
+            <div class="flex gap-4">
+              <button onclick="addToPipeline('${post.linkedin_url}')" class="pipeline-btn">
+                ✅ Add to Pipeline
+              </button>
+              <button onclick="markNotRelevant('${post.linkedin_url}')" class="not-relevant-btn">
+                ❌ Not Relevant
+              </button>
+              <a href="${post.linkedin_url}" target="_blank" class="view-btn">
+                👀 View on LinkedIn
+              </a>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
   }
 
   // Add to pipeline
@@ -313,11 +375,11 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
         })
       });
       
-      showStatus('Post added to pipeline for analysis!', 'success');
-      // Remove the post from current view
-      event.target.closest('.border').style.opacity = '0.5';
-      event.target.textContent = 'Added ✓';
+      showStatus('Post added to pipeline! ✅', 'success');
+      // Find and update the button
+      event.target.textContent = '✅ Added';
       event.target.disabled = true;
+      event.target.classList.add('disabled');
       
     } catch (error) {
       console.error('Failed to add to pipeline:', error);
@@ -336,9 +398,10 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
         })
       });
       
-      showStatus('Post marked as not relevant', 'success');
-      // Remove the post from current view
-      event.target.closest('.border').remove();
+      showStatus('Post marked as not relevant ❌', 'success');
+      // Remove the post from view
+      event.target.closest('.post-card').style.opacity = '0.3';
+      event.target.closest('.post-card').style.pointerEvents = 'none';
       
     } catch (error) {
       console.error('Failed to mark as not relevant:', error);
@@ -351,23 +414,41 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
     // Load saved searches on page load
     loadSavedSearches();
     
-    // Search form submission
+    // Tab switching
+    document.getElementById('saved-searches-tab').addEventListener('click', () => switchTab('saved-searches'));
+    document.getElementById('search-results-tab').addEventListener('click', () => switchTab('search-results'));
+    
+    // Search form submission (Run Search)
     document.getElementById('search-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const formData = new FormData(this);
-      saveSearch(formData, true); // Save and run
+      const searchData = {
+        name: document.getElementById('search-name').value,
+        query_text: document.getElementById('keywords').value,
+        fuzzy_description: document.getElementById('description').value || null
+      };
+      
+      if (!searchData.name || !searchData.query_text) {
+        showStatus('Please fill in search name and keywords', 'error');
+        return;
+      }
+      
+      // Save and then run
+      saveSearch().then(() => {
+        // Find the newly created search and run it
+        setTimeout(() => {
+          const runButtons = document.querySelectorAll('.run-search-btn');
+          if (runButtons.length > 0) {
+            runButtons[0].click();
+          }
+        }, 1000);
+      });
     });
     
     // Save only button
-    document.getElementById('save-only').addEventListener('click', function() {
-      const formData = new FormData(document.getElementById('search-form'));
-      saveSearch(formData, false); // Save only
-    });
+    document.getElementById('save-search').addEventListener('click', saveSearch);
     
     // Refresh searches button
-    document.getElementById('refresh-searches').addEventListener('click', function() {
-      loadSavedSearches();
-    });
+    document.getElementById('refresh-searches').addEventListener('click', loadSavedSearches);
   });
 
   // Make functions global for onclick handlers
@@ -377,10 +458,62 @@ const API_BASE = 'https://linkedin-ai-proxy.vercel.app/api';
 </script>
 
 <style>
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  /* Modern button styles */
+  .save-btn {
+    @apply px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-2xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg text-lg;
+  }
+  
+  .run-btn {
+    @apply px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold rounded-2xl transition-all duration-200 transform hover:scale-105 hover:shadow-xl text-lg;
+  }
+  
+  .refresh-btn {
+    @apply px-6 py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold rounded-xl transition-all duration-200 hover:shadow-md;
+  }
+  
+  .run-search-btn {
+    @apply px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .pipeline-btn {
+    @apply px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .not-relevant-btn {
+    @apply px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .view-btn {
+    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg no-underline;
+  }
+  
+  /* Tab styles */
+  .tab-button {
+    @apply text-gray-600 border-b-4 border-transparent;
+  }
+  
+  .tab-button.active {
+    @apply text-purple-600 border-purple-600 bg-purple-50;
+  }
+  
+  .tab-button:hover:not(.active) {
+    @apply text-purple-500 bg-gray-50;
+  }
+  
+  /* Card styles */
+  .search-card {
+    @apply bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-100 rounded-2xl p-6 mb-4 hover:shadow-lg transition-all duration-200 hover:border-purple-200;
+  }
+  
+  .post-card {
+    @apply bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-200 hover:border-purple-200;
+  }
+  
+  .results-header {
+    @apply bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-100 rounded-2xl p-6;
+  }
+  
+  .disabled {
+    @apply opacity-50 cursor-not-allowed;
   }
 </style>
