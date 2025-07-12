@@ -22,6 +22,23 @@ const currentPath = Astro.url.pathname;
     <!-- Import global styles -->
     <style>
       @import '../styles/global.css';
+      
+      /* Global component styles */
+      .card {
+        @apply bg-white rounded-xl shadow-md border border-gray-100 p-6;
+      }
+      
+      .btn-primary {
+        @apply px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+      }
+      
+      .btn-secondary {
+        @apply px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+      }
+      
+      .refresh-btn {
+        @apply px-6 py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold rounded-xl transition-all duration-200 hover:shadow-md;
+      }
     </style>
     
     <!-- Main Navigation -->
@@ -45,6 +62,9 @@ const currentPath = Astro.url.pathname;
             <a href="/" class={currentPath === '/' ? 'text-purple-600 font-medium border-b-2 border-purple-600 pb-1' : 'text-gray-600 hover:text-purple-600 font-medium transition-colors'}>
               🔍 Discover
             </a>
+            <a href="/inspiration" class={currentPath === '/inspiration' ? 'text-purple-600 font-medium border-b-2 border-purple-600 pb-1' : 'text-gray-600 hover:text-purple-600 font-medium transition-colors'}>
+              💡 Inspiration
+            </a>
             <a href="/leads" class={currentPath === '/leads' ? 'text-purple-600 font-medium border-b-2 border-purple-600 pb-1' : 'text-gray-600 hover:text-purple-600 font-medium transition-colors'}>
               👥 Leads
             </a>
@@ -54,6 +74,11 @@ const currentPath = Astro.url.pathname;
             <a href="/analytics" class={currentPath === '/analytics' ? 'text-purple-600 font-medium border-b-2 border-purple-600 pb-1' : 'text-gray-600 hover:text-purple-600 font-medium transition-colors'}>
               📊 Analytics
             </a>
+            
+            <!-- User Menu -->
+            <div id="user-menu" class="flex items-center space-x-4">
+              <!-- Will be populated by Clerk -->
+            </div>
           </div>
           
           <!-- Mobile menu button -->
@@ -73,6 +98,9 @@ const currentPath = Astro.url.pathname;
           <a href="/" class={currentPath === '/' ? 'block px-3 py-2 text-purple-600 font-medium bg-purple-50 rounded-md' : 'block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md'}>
             🔍 Discover
           </a>
+          <a href="/inspiration" class={currentPath === '/inspiration' ? 'block px-3 py-2 text-purple-600 font-medium bg-purple-50 rounded-md' : 'block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md'}>
+            💡 Inspiration
+          </a>
           <a href="/leads" class={currentPath === '/leads' ? 'block px-3 py-2 text-purple-600 font-medium bg-purple-50 rounded-md' : 'block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md'}>
             👥 Leads
           </a>
@@ -91,9 +119,12 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
 
-    <!-- Mobile menu toggle script -->
+    <!-- Clerk Authentication and Mobile menu toggle script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      import { Clerk } from '@clerk/clerk-js';
+      
+      document.addEventListener('DOMContentLoaded', async function() {
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -101,6 +132,43 @@ const currentPath = Astro.url.pathname;
           mobileMenuButton.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
           });
+        }
+        
+        // Clerk Authentication
+        const clerkPublishableKey = import.meta.env.PUBLIC_CLERK_PUBLISHABLE_KEY;
+        
+        if (clerkPublishableKey) {
+          const clerk = new Clerk(clerkPublishableKey);
+          await clerk.load();
+          
+          // Check if user is signed in
+          if (clerk.user) {
+            // User is authenticated, show user menu
+            const userMenu = document.getElementById('user-menu');
+            if (userMenu) {
+              userMenu.innerHTML = `
+                <div class="flex items-center space-x-4">
+                  <span class="text-sm text-gray-600">
+                    ${clerk.user.emailAddresses[0]?.emailAddress || 'User'}
+                  </span>
+                  <button id="sign-out-btn" class="text-sm text-gray-600 hover:text-purple-600 font-medium">
+                    Sign Out
+                  </button>
+                </div>
+              `;
+              
+              // Add sign out functionality
+              document.getElementById('sign-out-btn')?.addEventListener('click', async () => {
+                await clerk.signOut();
+                window.location.href = '/sign-in';
+              });
+            }
+          } else {
+            // User is not authenticated, redirect to sign in
+            if (!window.location.pathname.includes('/sign-')) {
+              window.location.href = '/sign-in';
+            }
+          }
         }
       });
     </script>

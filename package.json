@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@clerk/astro": "^2.10.3",
+    "@clerk/clerk-js": "^5.71.0",
     "astro": "^5.11.0",
-    "tailwindcss": "^3.4.0",
-    "@astrojs/tailwind": "^5.1.0"
+    "tailwindcss": "^3.4.0"
   }
 }

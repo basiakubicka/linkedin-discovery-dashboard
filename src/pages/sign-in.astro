@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sign In - LinkedIn Discovery Dashboard">
+  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <div>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Sign in to your account
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          Access your LinkedIn automation dashboard
+        </p>
+      </div>
+      
+      <!-- Clerk Sign In Component -->
+      <div id="clerk-sign-in" class="mt-8"></div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { Clerk } from '@clerk/clerk-js';
+  
+  const clerkPublishableKey = import.meta.env.PUBLIC_CLERK_PUBLISHABLE_KEY;
+  
+  if (!clerkPublishableKey) {
+    throw new Error('Missing Clerk Publishable Key');
+  }
+  
+  const clerk = new Clerk(clerkPublishableKey);
+  await clerk.load();
+  
+  const signInDiv = document.getElementById('clerk-sign-in');
+  
+  if (signInDiv) {
+    clerk.mountSignIn(signInDiv, {
+      redirectUrl: '/',
+      signUpUrl: '/sign-up'
+    });
+  }
+</script>

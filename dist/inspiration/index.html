@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="LinkedIn Discovery Dashboard - Find high-performing posts and qualified leads"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Inspiration Board - LinkedIn Discovery Dashboard</title><link rel="stylesheet" href="/_astro/analytics.C5D-SmSE.css">
+<style>.inspiration-card[data-astro-cid-twapvdkt]{cursor:pointer;border-radius:.5rem;border-width:1px;--tw-border-opacity: 1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:1rem;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.2s}.inspiration-card[data-astro-cid-twapvdkt]:hover{--tw-border-opacity: 1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1));--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.inspiration-row[data-astro-cid-twapvdkt]{cursor:pointer;border-radius:.5rem;border-width:1px;--tw-border-opacity: 1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:1rem;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.2s}.inspiration-row[data-astro-cid-twapvdkt]:hover{--tw-border-opacity: 1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1));--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.view-btn[data-astro-cid-twapvdkt]{padding:.5rem;--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity, 1));transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.view-btn[data-astro-cid-twapvdkt]:hover{--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.view-btn[data-astro-cid-twapvdkt].active{--tw-text-opacity: 1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.line-clamp-2[data-astro-cid-twapvdkt]{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.line-clamp-4[data-astro-cid-twapvdkt]{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+</style></head> <body class="bg-gray-50 min-h-screen" data-astro-cid-sckkx6r4> <!-- Import global styles -->  <!-- Main Navigation --> <nav class="bg-white shadow-sm border-b border-gray-200" data-astro-cid-sckkx6r4> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-astro-cid-sckkx6r4> <div class="flex justify-between h-16" data-astro-cid-sckkx6r4> <div class="flex items-center" data-astro-cid-sckkx6r4> <!-- Logo --> <div class="flex items-center space-x-3" data-astro-cid-sckkx6r4> <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center" data-astro-cid-sckkx6r4> <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-sckkx6r4> <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" data-astro-cid-sckkx6r4></path> </svg> </div> <span class="text-xl font-bold text-gray-900" data-astro-cid-sckkx6r4>LinkedIn Discovery</span> </div> </div> <!-- Navigation Links --> <div class="hidden md:flex items-center space-x-8" data-astro-cid-sckkx6r4> <a href="/" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/inspiration" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+💡 Inspiration
+</a> <a href="/leads" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="text-gray-600 hover:text-purple-600 font-medium transition-colors" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> <!-- Mobile menu button --> <div class="md:hidden flex items-center" data-astro-cid-sckkx6r4> <button class="text-gray-600 hover:text-purple-600" id="mobile-menu-button" data-astro-cid-sckkx6r4> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-sckkx6r4> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" data-astro-cid-sckkx6r4></path> </svg> </button> </div> </div> </div> <!-- Mobile menu --> <div class="md:hidden hidden" id="mobile-menu" data-astro-cid-sckkx6r4> <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200" data-astro-cid-sckkx6r4> <a href="/" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+🔍 Discover
+</a> <a href="/inspiration" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+💡 Inspiration
+</a> <a href="/leads" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+👥 Leads
+</a> <a href="/settings" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+⚙️ Settings
+</a> <a href="/analytics" class="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-md" data-astro-cid-sckkx6r4>
+📊 Analytics
+</a> </div> </div> </nav> <!-- Main Content --> <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-astro-cid-sckkx6r4>   <div class="mb-8" data-astro-cid-twapvdkt> <h1 class="text-4xl font-bold text-gray-900 mb-3" data-astro-cid-twapvdkt>💡 Inspiration Board</h1> <p class="text-xl text-gray-600" data-astro-cid-twapvdkt>Browse and organize all scraped LinkedIn posts for content inspiration and trend analysis.</p> </div>  <div class="bg-white rounded-xl shadow-md border border-gray-100 p-6 mb-8" data-astro-cid-twapvdkt> <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4" data-astro-cid-twapvdkt> <div class="flex flex-col sm:flex-row gap-4 flex-1" data-astro-cid-twapvdkt> <!-- Search --> <div class="flex-1" data-astro-cid-twapvdkt> <input type="text" id="search-posts" placeholder="Search posts by content, author, or keywords..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" data-astro-cid-twapvdkt> </div> <!-- Engagement Filter --> <select id="engagement-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" data-astro-cid-twapvdkt> <option value="" data-astro-cid-twapvdkt>All Engagement</option> <option value="high" data-astro-cid-twapvdkt>High Engagement (80+)</option> <option value="medium" data-astro-cid-twapvdkt>Medium Engagement (60-79)</option> <option value="low" data-astro-cid-twapvdkt>Lower Engagement (<60)</option> </select> <!-- Sort Options --> <select id="sort-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" data-astro-cid-twapvdkt> <option value="newest" data-astro-cid-twapvdkt>Newest First</option> <option value="oldest" data-astro-cid-twapvdkt>Oldest First</option> <option value="engagement" data-astro-cid-twapvdkt>Highest Engagement</option> <option value="likes" data-astro-cid-twapvdkt>Most Liked</option> <option value="comments" data-astro-cid-twapvdkt>Most Comments</option> </select> </div> <!-- Action Buttons --> <div class="flex gap-3" data-astro-cid-twapvdkt> <button id="refresh-posts" class="refresh-btn" data-astro-cid-twapvdkt>
+🔄 Refresh
+</button> <button id="bulk-actions" class="btn-secondary" data-astro-cid-twapvdkt>
+📋 Bulk Actions
+</button> </div> </div> </div>  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" data-astro-cid-twapvdkt> <div class="card" data-astro-cid-twapvdkt> <div class="flex items-center" data-astro-cid-twapvdkt> <div class="p-3 rounded-full bg-purple-100 mr-4" data-astro-cid-twapvdkt> <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-twapvdkt> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" data-astro-cid-twapvdkt></path> </svg> </div> <div data-astro-cid-twapvdkt> <p class="text-sm font-medium text-gray-600" data-astro-cid-twapvdkt>Total Posts</p> <p class="text-2xl font-bold text-gray-900" id="total-posts" data-astro-cid-twapvdkt>--</p> </div> </div> </div> <div class="card" data-astro-cid-twapvdkt> <div class="flex items-center" data-astro-cid-twapvdkt> <div class="p-3 rounded-full bg-green-100 mr-4" data-astro-cid-twapvdkt> <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-twapvdkt> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" data-astro-cid-twapvdkt></path> </svg> </div> <div data-astro-cid-twapvdkt> <p class="text-sm font-medium text-gray-600" data-astro-cid-twapvdkt>Avg Engagement</p> <p class="text-2xl font-bold text-gray-900" id="avg-engagement" data-astro-cid-twapvdkt>--</p> </div> </div> </div> <div class="card" data-astro-cid-twapvdkt> <div class="flex items-center" data-astro-cid-twapvdkt> <div class="p-3 rounded-full bg-blue-100 mr-4" data-astro-cid-twapvdkt> <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-twapvdkt> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h4a1 1 0 011 1v2m-6 0h8m-8 0a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2" data-astro-cid-twapvdkt></path> </svg> </div> <div data-astro-cid-twapvdkt> <p class="text-sm font-medium text-gray-600" data-astro-cid-twapvdkt>In Pipeline</p> <p class="text-2xl font-bold text-gray-900" id="pipeline-count" data-astro-cid-twapvdkt>--</p> </div> </div> </div> <div class="card" data-astro-cid-twapvdkt> <div class="flex items-center" data-astro-cid-twapvdkt> <div class="p-3 rounded-full bg-yellow-100 mr-4" data-astro-cid-twapvdkt> <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-twapvdkt> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" data-astro-cid-twapvdkt></path> </svg> </div> <div data-astro-cid-twapvdkt> <p class="text-sm font-medium text-gray-600" data-astro-cid-twapvdkt>Top Performers</p> <p class="text-2xl font-bold text-gray-900" id="top-performers" data-astro-cid-twapvdkt>--</p> </div> </div> </div> </div>  <div class="bg-white rounded-xl shadow-md border border-gray-100 p-6" data-astro-cid-twapvdkt> <div class="flex justify-between items-center mb-6" data-astro-cid-twapvdkt> <h2 class="text-xl font-bold text-gray-900" data-astro-cid-twapvdkt>Scraped Posts</h2> <div class="flex items-center gap-4" data-astro-cid-twapvdkt> <span id="posts-count" class="text-sm text-gray-500" data-astro-cid-twapvdkt>Loading posts...</span> <div class="flex gap-2" data-astro-cid-twapvdkt> <button id="grid-view" class="view-btn active" data-view="grid" data-astro-cid-twapvdkt> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-twapvdkt> <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" data-astro-cid-twapvdkt></path> </svg> </button> <button id="list-view" class="view-btn" data-view="list" data-astro-cid-twapvdkt> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-twapvdkt> <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" data-astro-cid-twapvdkt></path> </svg> </button> </div> </div> </div> <div id="posts-container" data-astro-cid-twapvdkt> <!-- Loading state --> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-astro-cid-twapvdkt> <div class="animate-pulse" data-astro-cid-twapvdkt> <div class="h-6 bg-gray-200 rounded-lg mb-3" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg mb-2" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg w-5/6" data-astro-cid-twapvdkt></div> </div> <div class="animate-pulse" data-astro-cid-twapvdkt> <div class="h-6 bg-gray-200 rounded-lg mb-3" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg mb-2" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg w-5/6" data-astro-cid-twapvdkt></div> </div> <div class="animate-pulse" data-astro-cid-twapvdkt> <div class="h-6 bg-gray-200 rounded-lg mb-3" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg mb-2" data-astro-cid-twapvdkt></div> <div class="h-4 bg-gray-200 rounded-lg w-5/6" data-astro-cid-twapvdkt></div> </div> </div> </div> </div>  <div id="post-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" data-astro-cid-twapvdkt> <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-2/3 shadow-lg rounded-md bg-white" data-astro-cid-twapvdkt> <div class="mt-3" data-astro-cid-twapvdkt> <div class="flex justify-between items-center mb-4" data-astro-cid-twapvdkt> <h3 class="text-lg font-medium text-gray-900" id="modal-title" data-astro-cid-twapvdkt>Post Details</h3> <button id="close-modal" class="text-gray-400 hover:text-gray-600" data-astro-cid-twapvdkt> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-twapvdkt> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-twapvdkt></path> </svg> </button> </div> <div id="modal-content" data-astro-cid-twapvdkt> <!-- Modal content will be loaded here --> </div> </div> </div> </div>  <div id="status-message" class="hidden fixed bottom-6 right-6 max-w-sm z-50" data-astro-cid-twapvdkt></div>  </main> <!-- Mobile menu toggle script --> <script type="module">document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu");e&&n&&e.addEventListener("click",function(){n.classList.toggle("hidden")})});</script> </body> </html> <script>(function(){const API_BASE = "https://linkedin-ai-proxy.vercel.app/api";
+
+  let currentView = 'grid';
+  let allPosts = [];
+  let filteredPosts = [];
+
+  // API helper function
+  async function apiCall(endpoint, options = {}) {
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'user-id': 'default-user',
+          ...options.headers
+        },
+        ...options
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('API call failed:', error);
+      throw error;
+    }
+  }
+
+  // Show status message
+  function showStatus(message, type = 'info') {
+    const statusEl = document.getElementById('status-message');
+    const bgColor = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
+    
+    statusEl.innerHTML = `
+      <div class="${bgColor} text-white px-6 py-4 rounded-2xl shadow-xl">
+        <div class="flex items-center">
+          <span class="text-lg">${message}</span>
+        </div>
+      </div>
+    `;
+    statusEl.classList.remove('hidden');
+    
+    setTimeout(() => {
+      statusEl.classList.add('hidden');
+    }, 5000);
+  }
+
+  // Load posts stats
+  async function loadStats() {
+    try {
+      const response = await apiCall('/posts/stats');
+      const stats = response.data;
+      
+      document.getElementById('total-posts').textContent = stats.total || 0;
+      document.getElementById('avg-engagement').textContent = stats.avg_engagement || '0';
+      document.getElementById('pipeline-count').textContent = stats.pipeline || 0;
+      document.getElementById('top-performers').textContent = stats.top_performers || 0;
+      
+    } catch (error) {
+      console.error('Failed to load stats:', error);
+      // Set default values
+      document.getElementById('total-posts').textContent = '0';
+      document.getElementById('avg-engagement').textContent = '0';
+      document.getElementById('pipeline-count').textContent = '0';
+      document.getElementById('top-performers').textContent = '0';
+    }
+  }
+
+  // Load all posts
+  async function loadPosts() {
+    try {
+      // For now, use dummy data until API is ready
+      loadDummyPosts();
+      
+      // Uncomment when API is ready:
+      // const response = await apiCall('/posts');
+      // allPosts = response.data;
+      // filteredPosts = [...allPosts];
+      // displayPosts();
+      
+    } catch (error) {
+      console.error('Failed to load posts:', error);
+      showStatus('Failed to load posts', 'error');
+      loadDummyPosts(); // Fallback to dummy data
+    }
+  }
+
+  // Load dummy posts for demonstration
+  function loadDummyPosts() {
+    allPosts = [
+      {
+        id: '1',
+        author_name: 'Sarah Chen',
+        author_title: 'CEO at GrowthCo',
+        content: 'Just hit $1M ARR after 18 months of building our B2B SaaS platform! Here\'s what I learned about customer acquisition that I wish I knew earlier. Thread 🧵\n\n1. Product-market fit is not a destination, it\'s a journey\n2. Your first 10 customers will teach you more than 1000 surveys\n3. Focus on retention before acquisition - a leaky bucket never fills\n4. Content marketing takes 6+ months to compound\n5. Personal branding accelerates everything',
+        engagement_score: 94,
+        likes: 342,
+        comments: 89,
+        reposts: 45,
+        linkedin_url: 'https://linkedin.com/posts/sarah-chen-growth',
+        created_at: '2024-01-10T10:30:00Z',
+        status: 'pending'
+      },
+      {
+        id: '2',
+        author_name: 'Marcus Rodriguez',
+        author_title: 'Growth Marketing Consultant',
+        content: 'Stop wasting money on paid ads for your SaaS startup. I\'ve helped 50+ B2B companies grow to 7-figures using these 5 organic growth strategies that actually work in 2024:\n\n🎯 Strategy #1: SEO-optimized comparison pages\n🎯 Strategy #2: Partner integration content\n🎯 Strategy #3: Customer success story campaigns\n🎯 Strategy #4: Industry-specific webinar series\n🎯 Strategy #5: Thought leadership on emerging trends\n\nWhich one would you try first?',
+        engagement_score: 87,
+        likes: 289,
+        comments: 67,
+        reposts: 34,
+        linkedin_url: 'https://linkedin.com/posts/marcus-rodriguez-saas',
+        created_at: '2024-01-09T14:15:00Z',
+        status: 'in_pipeline'
+      },
+      {
+        id: '3',
+        author_name: 'Emily Zhang',
+        author_title: 'Product Manager at ScaleUp',
+        content: 'Why 90% of SaaS startups fail at customer onboarding (and how we fixed ours to increase retention by 40%). The biggest mistake founders make is assuming users will figure it out themselves.\n\nOur before/after:\n❌ 15-step setup process\n✅ 3-step quick start\n\n❌ Feature-heavy demo\n✅ Value-focused walkthrough\n\n❌ Generic welcome email\n✅ Personalized success path\n\nResult: 23% → 63% activation rate',
+        engagement_score: 91,
+        likes: 456,
+        comments: 123,
+        reposts: 67,
+        linkedin_url: 'https://linkedin.com/posts/emily-zhang-onboarding',
+        created_at: '2024-01-08T09:45:00Z',
+        status: 'pending'
+      },
+      {
+        id: '4',
+        author_name: 'David Park',
+        author_title: 'Founder at AutomateFlow',
+        content: 'From 0 to 10,000 users in 6 months. Here\'s the exact growth playbook we used for our B2B automation tool. Spoiler: It wasn\'t about the product features.\n\n🚀 Month 1-2: Built in public on Twitter\n🚀 Month 3-4: Partnered with 5 complementary tools\n🚀 Month 5-6: Launched affiliate program\n\nThe secret sauce? We solved a workflow problem, not a feature problem. Users don\'t buy software - they buy better outcomes.',
+        engagement_score: 88,
+        likes: 378,
+        comments: 95,
+        reposts: 52,
+        linkedin_url: 'https://linkedin.com/posts/david-park-growth',
+        created_at: '2024-01-07T16:20:00Z',
+        status: 'in_pipeline'
+      },
+      {
+        id: '5',
+        author_name: 'Alex Thompson',
+        author_title: 'Conversion Optimization Specialist',
+        content: 'I analyzed 100+ successful B2B SaaS pricing pages. Here are the 7 psychological triggers that convert browsers into buyers. Number 4 will surprise you.\n\n1. Social proof above the fold\n2. Transparent pricing (no "Contact us")\n3. Feature comparison tables\n4. Money-back guarantees (yes, for B2B!)\n5. Customer logos from recognizable brands\n6. Clear value props for each tier\n7. Urgency through limited-time offers\n\nWhich trigger does your pricing page use?',
+        engagement_score: 82,
+        likes: 234,
+        comments: 58,
+        reposts: 29,
+        linkedin_url: 'https://linkedin.com/posts/alex-thompson-pricing',
+        created_at: '2024-01-06T11:30:00Z',
+        status: 'pending'
+      },
+      {
+        id: '6',
+        author_name: 'Rachel Kumar',
+        author_title: 'SaaS Growth Strategist',
+        content: 'Building in public: How we grew from $0 to $50K MRR in 8 months. Here\'s everything that worked (and what didn\'t). Raw numbers included 📊\n\nWhat worked:\n✅ Weekly revenue updates on LinkedIn\n✅ Behind-the-scenes product development\n✅ Honest failure stories (built massive engagement)\n✅ Customer interview highlights\n\nWhat didn\'t:\n❌ Generic motivational content\n❌ Over-promoting product features\n❌ Copying other successful founders\n\nAuthenticity beats perfection every time.',
+        engagement_score: 95,
+        likes: 512,
+        comments: 134,
+        reposts: 78,
+        linkedin_url: 'https://linkedin.com/posts/rachel-kumar-mrr',
+        created_at: '2024-01-05T13:15:00Z',
+        status: 'in_pipeline'
+      }
+    ];
+    
+    filteredPosts = [...allPosts];
+    displayPosts();
+    updateStats();
+  }
+
+  // Update stats from dummy data
+  function updateStats() {
+    const total = allPosts.length;
+    const pipeline = allPosts.filter(p => p.status === 'in_pipeline').length;
+    const avgEngagement = Math.round(allPosts.reduce((sum, p) => sum + p.engagement_score, 0) / total);
+    const topPerformers = allPosts.filter(p => p.engagement_score >= 90).length;
+    
+    document.getElementById('total-posts').textContent = total.toString();
+    document.getElementById('avg-engagement').textContent = avgEngagement.toString();
+    document.getElementById('pipeline-count').textContent = pipeline.toString();
+    document.getElementById('top-performers').textContent = topPerformers.toString();
+  }
+
+  // Display posts based on current view
+  function displayPosts() {
+    const container = document.getElementById('posts-container');
+    const count = document.getElementById('posts-count');
+    
+    count.textContent = `${filteredPosts.length} posts`;
+    
+    if (filteredPosts.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-16">
+          <div class="text-6xl mb-4">📭</div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">No posts found</h3>
+          <p class="text-gray-500">Try adjusting your filters or search terms</p>
+        </div>
+      `;
+      return;
+    }
+
+    if (currentView === 'grid') {
+      container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${filteredPosts.map(post => `
+            <div class="inspiration-card" onclick="viewPost('${post.id}')">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                    <span class="text-sm font-medium text-purple-600">${post.author_name.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">${post.author_name}</h4>
+                    <p class="text-xs text-gray-500">${post.author_title}</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-bold text-purple-600">${post.engagement_score}</div>
+                  <div class="text-xs text-gray-500">Score</div>
+                </div>
+              </div>
+              
+              <p class="text-gray-700 text-sm mb-4 line-clamp-4">${post.content}</p>
+              
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                <div class="flex gap-3">
+                  <span>${post.likes} 👍</span>
+                  <span>${post.comments} 💬</span>
+                  <span>${post.reposts} 🔄</span>
+                </div>
+                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                  post.status === 'in_pipeline' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                }">
+                  ${post.status === 'in_pipeline' ? 'In Pipeline' : 'Pending'}
+                </span>
+              </div>
+              
+              <div class="text-xs text-gray-400">
+                ${new Date(post.created_at).toLocaleDateString()}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="space-y-4">
+          ${filteredPosts.map(post => `
+            <div class="inspiration-row" onclick="viewPost('${post.id}')">
+              <div class="flex justify-between items-start">
+                <div class="flex-1">
+                  <div class="flex items-center mb-2">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                      <span class="text-xs font-medium text-purple-600">${post.author_name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-gray-900 text-sm">${post.author_name}</h4>
+                      <p class="text-xs text-gray-500">${post.author_title}</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 text-sm mb-3 line-clamp-2">${post.content}</p>
+                  <div class="flex items-center gap-4 text-xs text-gray-500">
+                    <span>${post.likes} 👍</span>
+                    <span>${post.comments} 💬</span>
+                    <span>${post.reposts} 🔄</span>
+                    <span>${new Date(post.created_at).toLocaleDateString()}</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 ml-4">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                    post.status === 'in_pipeline' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                  }">
+                    ${post.status === 'in_pipeline' ? 'In Pipeline' : 'Pending'}
+                  </span>
+                  <div class="text-center">
+                    <div class="text-lg font-bold text-purple-600">${post.engagement_score}</div>
+                    <div class="text-xs text-gray-500">Score</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+  }
+
+  // Filter and search posts
+  function filterPosts() {
+    const searchTerm = document.getElementById('search-posts').value.toLowerCase();
+    const engagementFilter = document.getElementById('engagement-filter').value;
+    const sortFilter = document.getElementById('sort-filter').value;
+    
+    // Apply filters
+    filteredPosts = allPosts.filter(post => {
+      const matchesSearch = !searchTerm || 
+        post.content.toLowerCase().includes(searchTerm) ||
+        post.author_name.toLowerCase().includes(searchTerm) ||
+        post.author_title.toLowerCase().includes(searchTerm);
+      
+      const matchesEngagement = !engagementFilter ||
+        (engagementFilter === 'high' && post.engagement_score >= 80) ||
+        (engagementFilter === 'medium' && post.engagement_score >= 60 && post.engagement_score < 80) ||
+        (engagementFilter === 'low' && post.engagement_score < 60);
+      
+      return matchesSearch && matchesEngagement;
+    });
+    
+    // Apply sorting
+    filteredPosts.sort((a, b) => {
+      switch (sortFilter) {
+        case 'newest':
+          return new Date(b.created_at) - new Date(a.created_at);
+        case 'oldest':
+          return new Date(a.created_at) - new Date(b.created_at);
+        case 'engagement':
+          return b.engagement_score - a.engagement_score;
+        case 'likes':
+          return b.likes - a.likes;
+        case 'comments':
+          return b.comments - a.comments;
+        default:
+          return 0;
+      }
+    });
+    
+    displayPosts();
+  }
+
+  // View post details
+  function viewPost(postId) {
+    const post = allPosts.find(p => p.id === postId);
+    if (!post) return;
+    
+    document.getElementById('modal-title').textContent = `Post by ${post.author_name}`;
+    document.getElementById('modal-content').innerHTML = `
+      <div class="space-y-4">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-lg font-medium text-purple-600">${post.author_name.charAt(0)}</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900">${post.author_name}</h4>
+            <p class="text-sm text-gray-500">${post.author_title}</p>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-4">
+          <p class="text-gray-700 whitespace-pre-line">${post.content}</p>
+        </div>
+        
+        <div class="grid grid-cols-4 gap-4 text-center">
+          <div>
+            <div class="text-2xl font-bold text-purple-600">${post.engagement_score}</div>
+            <div class="text-xs text-gray-500">Engagement Score</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-blue-600">${post.likes}</div>
+            <div class="text-xs text-gray-500">Likes</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-green-600">${post.comments}</div>
+            <div class="text-xs text-gray-500">Comments</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-yellow-600">${post.reposts}</div>
+            <div class="text-xs text-gray-500">Reposts</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between text-sm text-gray-500">
+          <span>Posted: ${new Date(post.created_at).toLocaleDateString()}</span>
+          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+            post.status === 'in_pipeline' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+          }">
+            ${post.status === 'in_pipeline' ? 'In Pipeline' : 'Pending'}
+          </span>
+        </div>
+        
+        <div class="flex gap-3 pt-4">
+          <button onclick="togglePipeline('${post.id}')" class="btn-primary">
+            ${post.status === 'in_pipeline' ? 'Remove from Pipeline' : 'Add to Pipeline'}
+          </button>
+          <a href="${post.linkedin_url}" target="_blank" class="btn-secondary">
+            View on LinkedIn
+          </a>
+        </div>
+      </div>
+    `;
+    
+    document.getElementById('post-modal').classList.remove('hidden');
+  }
+
+  // Toggle pipeline status
+  function togglePipeline(postId) {
+    const post = allPosts.find(p => p.id === postId);
+    if (!post) return;
+    
+    post.status = post.status === 'in_pipeline' ? 'pending' : 'in_pipeline';
+    
+    updateStats();
+    displayPosts();
+    
+    // Close modal and show status
+    document.getElementById('post-modal').classList.add('hidden');
+    showStatus(
+      post.status === 'in_pipeline' ? 'Added to pipeline! ✅' : 'Removed from pipeline ❌',
+      'success'
+    );
+  }
+
+  // Change view
+  function changeView(view) {
+    currentView = view;
+    
+    // Update active button
+    document.querySelectorAll('.view-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`[data-view="${view}"]`).classList.add('active');
+    
+    displayPosts();
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load initial data
+    loadStats();
+    loadPosts();
+    
+    // Search and filter handlers
+    document.getElementById('search-posts').addEventListener('input', filterPosts);
+    document.getElementById('engagement-filter').addEventListener('change', filterPosts);
+    document.getElementById('sort-filter').addEventListener('change', filterPosts);
+    
+    // View toggle handlers
+    document.getElementById('grid-view').addEventListener('click', () => changeView('grid'));
+    document.getElementById('list-view').addEventListener('click', () => changeView('list'));
+    
+    // Action button handlers
+    document.getElementById('refresh-posts').addEventListener('click', loadPosts);
+    
+    // Modal close handler
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('post-modal').classList.add('hidden');
+    });
+    
+    // Close modal when clicking outside
+    document.getElementById('post-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.add('hidden');
+      }
+    });
+  });
+
+  // Make functions global for onclick handlers
+  window.viewPost = viewPost;
+  window.togglePipeline = togglePipeline;
+})();</script> 
